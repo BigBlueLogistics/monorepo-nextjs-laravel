@@ -1,5 +1,5 @@
 {
-  "name": "van_monitoring",
+  "name": "monorepo-nextjs-laravel",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -24,6 +24,7 @@
     "@emotion/styled": "^11.11.0",
     "@fontsource/material-icons": "^5.0.7",
     "@fontsource/roboto": "^5.0.8",
+    "@hookform/resolvers": "^3.3.4",
     "@mui/icons-material": "^5.14.9",
     "@mui/material": "^5.14.10",
     "@reduxjs/toolkit": "^1.9.5",

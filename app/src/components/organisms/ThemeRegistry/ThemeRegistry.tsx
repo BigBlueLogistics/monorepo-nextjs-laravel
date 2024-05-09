@@ -5,7 +5,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import NextAppDirEmotionCacheProvider from './EmotionCache';
 import { useMaterialUIController } from '@/context';
-import { reAuthenticate } from '@/redux/auth/action';
+import { reAuthenticate } from '@/core/redux/auth/action';
 import { useAppDispatch } from '@/hooks';
 
 import theme from './theme';

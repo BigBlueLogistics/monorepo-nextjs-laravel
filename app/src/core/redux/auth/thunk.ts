@@ -1,12 +1,15 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { authServices } from '@/services';
+import { container } from '@/core/dependencies';
 import { SignInFormType, SignUpFormType, ResetPassLinkType, ResetPassType } from '@/types/authForm';
+import AuthUseCases from '@/core/usecases/auth';
 
 export const signIn = createAsyncThunk(
   'auth/signIn',
   async ({ email, password }: SignInFormType) => {
     try {
-      const response = await authServices.signIn({ email, password });
+      const response = await container
+        .resolve<AuthUseCases>(AuthUseCases)
+        .signIn({ email, password });
       return response.data;
     } catch (error: any) {
       if (error.response) {
@@ -20,7 +23,7 @@ export const signIn = createAsyncThunk(
 
 export const signUp = createAsyncThunk('auth/signup', async (payload: SignUpFormType) => {
   try {
-    const response = await authServices.signUp(payload);
+    const response = await container.resolve<AuthUseCases>(AuthUseCases).signUp(payload);
     return response.data;
   } catch (error: any) {
     if (error.response) {
@@ -35,7 +38,7 @@ export const resetPassLink = createAsyncThunk(
   'auth/reset-pass-link',
   async (payload: ResetPassLinkType) => {
     try {
-      const response = await authServices.resetPassLink(payload);
+      const response = await container.resolve<AuthUseCases>(AuthUseCases).resetPassLink(payload);
       return response.data;
     } catch (error: any) {
       if (error.response) {
@@ -49,7 +52,7 @@ export const resetPassLink = createAsyncThunk(
 
 export const resetPass = createAsyncThunk('auth/reset-pass', async (payload: ResetPassType) => {
   try {
-    const response = await authServices.resetPass(payload);
+    const response = await container.resolve<AuthUseCases>(AuthUseCases).resetPass(payload);
     return response.data;
   } catch (error: any) {
     if (error.response) {
@@ -62,7 +65,7 @@ export const resetPass = createAsyncThunk('auth/reset-pass', async (payload: Res
 
 export const signOut = createAsyncThunk('auth/logout', async () => {
   try {
-    const response = await authServices.signOut();
+    const response = await container.resolve<AuthUseCases>(AuthUseCases).signOut();
     return response.data;
   } catch (error: any) {
     if (error.response) {
@@ -75,7 +78,7 @@ export const signOut = createAsyncThunk('auth/logout', async () => {
 
 export const reAuthenticate = createAsyncThunk('auth/is-authenticated', async () => {
   try {
-    const response = await authServices.reAuthenticate();
+    const response = await container.resolve<AuthUseCases>(AuthUseCases).reAuthenticate();
     return response.data;
   } catch (error: any) {
     if (error.response) {

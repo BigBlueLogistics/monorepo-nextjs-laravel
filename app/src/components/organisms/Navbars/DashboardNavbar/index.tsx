@@ -1,6 +1,6 @@
 import { useState, useEffect, MouseEvent } from 'react';
 import { usePathname } from 'next/navigation';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -18,7 +18,7 @@ import {
   navbarMobileMenu,
 } from '@/components/organisms/Navbars/DashboardNavbar/styles';
 import { useAppDispatch } from '@/hooks';
-import { signOut, setIsAuthenticated } from '@/redux/auth/action';
+import { signOut, setIsAuthenticated } from '@/core/redux/auth/action';
 
 import { useMaterialUIController, setTransparentNavbar, setMiniSidenav } from '@/context';
 import { Theme } from '@mui/material/styles/createTheme';

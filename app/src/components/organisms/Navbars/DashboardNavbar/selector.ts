@@ -1,5 +1,5 @@
 import { useAppSelector } from '@/hooks';
-import { signIn } from '@/redux/auth/action';
+import { signIn } from '@/core/redux/auth/action';
 
 function selector() {
   // eslint-disable-next-line react-hooks/rules-of-hooks

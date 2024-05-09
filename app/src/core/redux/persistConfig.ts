@@ -1,6 +1,6 @@
 import storage from 'redux-persist/es/storage';
 import { createTransform } from 'redux-persist';
-import { signIn } from '@/redux/auth/action';
+import { signIn } from '@/core/redux/auth/action';
 import { AuthStoreType } from '@/types/authStore';
 
 // Clear and not persist object keys below except auth key.

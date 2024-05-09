@@ -1,4 +1,4 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import auth from '@/redux/auth/reducer';
+import auth from '@/core/redux/auth/reducer';
 
 export default combineReducers({ auth });

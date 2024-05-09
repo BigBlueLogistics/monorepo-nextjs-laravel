@@ -1,13 +1,6 @@
 // @ts-nocheck
-import { useMemo, useEffect, useState, Fragment } from 'react';
-import {
-  useTable,
-  usePagination,
-  useGlobalFilter,
-  useAsyncDebounce,
-  useSortBy,
-  useExpanded,
-} from 'react-table';
+import { useMemo, useEffect, useState, Fragment, startTransition } from 'react';
+import { useTable, usePagination, useGlobalFilter, useSortBy, useExpanded } from 'react-table';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
@@ -115,9 +108,11 @@ function DataTable({
   const [search, setSearch] = useState(globalFilter);
 
   // Search input state handle
-  const onSearchChange = useAsyncDebounce((value) => {
-    setGlobalFilter(value || undefined);
-  }, 100);
+  const onSearchChange = (value) => {
+    startTransition(() => {
+      setGlobalFilter(value || undefined);
+    });
+  };
 
   // A function that sets the sorted value for the table
   const setSortedValue = (column) => {

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
-import Providers from '@/redux/Providers';
+import Providers from '@/core/redux/Providers';
 import { MaterialUIControllerProvider } from '@/context';
 import { SWRProvider } from '@/components/molecules/SWRProvider';
 import ThemeRegistry from '@/components/organisms/ThemeRegistry/ThemeRegistry';
