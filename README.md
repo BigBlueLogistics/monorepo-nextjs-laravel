@@ -1,1 +1,1 @@
-# Warehouse management system (WMS)
+### A template for new project.
